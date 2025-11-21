@@ -245,32 +245,61 @@ This ZIP will be deployed to Azure App Service.
 
 ---
 
+---
+
 ### 4.2 Create Web App
 
-1. Search **App Services** → **+ Create**.
-2. Basics:
-   - Resource group: `lab9-rg`
-   - Name: `lab9-flaskapp`
-   - Publish: **Code**
-   - Runtime: **Python 3.10**
-   - Operating System: Linux
-   - Region: Canada Central
-   - App Service Plan: `lab9-plan`
+1. Search **App Services** → click **+ Create**.
+2. Fill in the basics:
+   - **Resource group:** `lab9-rg`
+   - **Name:** `lab9-flaskapp`
+   - **Publish:** Code
+   - **Runtime stack:** Python 3.10
+   - **Operating System:** Linux
+   - **Region:** Canada Central
+   - **App Service Plan:** `lab9-plan` (create one if missing)
 3. Click **Review + Create → Create**.
 
 ---
 
-### 4.3 Deploy ZIP File
+### 4.3 Configure Deployment (GitHub)
 
-1. Open Web App → **Deployment Center**
-2. Select:
-   - Source: **Publish Files**
-   - Build Provider: **App Service Build**
-3. Upload **FlaskApp.zip**
-4. Click **Save**
+Since we want Azure to perform a build (pip install) and run our Flask app correctly, we will deploy using **GitHub**:
 
-Azure will install Python dependencies and start the app.
+1. Open the Web App (`lab9-flaskapp`).
+2. Go to **Deployment Center**.
+3. Select:
 
+   - **Source:** GitHub
+   - **Organization:** your GitHub account
+   - **Repository:** your Lab 9 repo
+   - **Branch:** `main` (or whichever you use)
+   - **Build provider:** **App Service build**
+
+4. Click **Save**.
+
+> This sets up an automated CI/CD pipeline.  
+> Each push to GitHub will redeploy your Flask app on Azure.
+
+---
+
+### 4.4 Add Startup Command (Required for Python on Linux)
+
+Azure App Service needs a startup command to:
+
+- Install dependencies from `requirements.txt`
+- Launch the Flask app using `gunicorn`
+
+1. On the Web App page, go to **Configuration**.
+2. Open the **General settings** tab.
+3. Scroll to **Startup Command**.
+4. Enter the following command:
+
+```bash
+gunicorn --bind 0.0.0.0 --timeout 600 app.application:app
+```
+
+5. Click Save, and the app will restart.
 </details>
 
 ---

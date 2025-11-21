@@ -1,0 +1,17 @@
+.container{
+    margin-top: 75px;
+    width:400px;
+    background-color: #9bb762;
+}
+
+.title{
+    width: 100px;
+    margin-top: 20%;
+    background-color: #c8d8e4;
+}
+
+.textbox{
+	background-color: #c8d8e4;
+	color: #9bb762;
+	border-radius: 10px;
+}

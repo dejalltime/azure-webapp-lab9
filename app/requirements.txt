@@ -1,0 +1,4 @@
+Flask==2.3.2
+azure-data-tables
+azure-servicebus
+azure-identity

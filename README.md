@@ -86,13 +86,17 @@ This user will be used for login in the Flask application.
 
 ### 2.1 Create Service Bus Namespace
 
+> **Important:**  
+> Azure Service Bus **Basic** tier does _not_ support **Topics** or **Subscriptions**.  
+> To use Topics (the Azure equivalent of AWS SNS), you must select the **Standard** tier.
+
 1. In the Azure Portal, search **Service Bus**.
 2. Click **+ Create**.
-3. Basics:
+3. Under **Basics**:
    - Resource group: `lab9-rg`
    - Namespace Name: `lab9servicebus`
-   - Location: Canada Central
-   - Pricing Tier: **Basic**
+   - Location: **Canada Central**
+   - Pricing Tier: **Standard** _(Topics are only available in Standard or Premium)_
 4. Click **Review + Create → Create**.
 
 ---

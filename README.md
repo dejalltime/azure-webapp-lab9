@@ -46,6 +46,7 @@ By the end of this lab, you will be able to:
 3. Choose **Azure Cosmos DB for Table**.
 4. Basics:
    - Subscription: your subscription
+   - Workload Type: Learning
    - Resource group: `lab9-rg`
    - Account Name: `lab9cosmosaccount`
    - Location: Canada Central
@@ -56,8 +57,8 @@ By the end of this lab, you will be able to:
 ### 1.2 Create `MyTable`
 
 1. Open your Cosmos DB account: `lab9cosmosaccount`.
-2. In the left menu, go to **Tables**.
-3. Click **+ Table**.
+2. In the left menu, go to **Data Explorer**.
+3. Click **+ New Table**.
 4. Table name: **MyTable**
 5. Click **OK** to create.
 
@@ -66,8 +67,8 @@ By the end of this lab, you will be able to:
 ### 1.3 Insert a Test User (Portal)
 
 1. Inside **MyTable**, click **Items**.
-2. Click **+ Add Item**.
-3. Add fields exactly like DynamoDB:
+2. Click **+ Add Entity**.
+3. Add fields:
    - **PartitionKey:** `Username`
    - **RowKey:** `testuser`
    - **Email:** `test@example.com`

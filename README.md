@@ -198,6 +198,10 @@ def login():
 
 ### 3.4 Create ZIP for Deployment
 
+There are **two reliable ways** to create the deployment ZIP:
+
+#### Method 1 — GUI (Finder / File Explorer)
+
 1. Select:
    - `application.py`
    - `requirements.txt`
@@ -205,6 +209,18 @@ def login():
    - `static/`
 2. Right-click → **Compress to ZIP**  
    Name it: **FlaskApp.zip**
+
+#### Method 2 — Recommended (Terminal)
+
+This guarantees Azure receives the correct ZIP structure.
+
+```bash
+# Move into your project folder
+cd lab9-flask-app
+
+# Build the deployment ZIP
+zip -r FlaskApp.zip application.py requirements.txt templates static
+```
 
 This ZIP will be deployed to Azure App Service.
 
@@ -248,7 +264,7 @@ This ZIP will be deployed to Azure App Service.
 
 1. Open Web App → **Deployment Center**
 2. Select:
-   - Source: **Local Git / ZIP**
+   - Source: **Publish Files**
    - Build Provider: **App Service Build**
 3. Upload **FlaskApp.zip**
 4. Click **Save**

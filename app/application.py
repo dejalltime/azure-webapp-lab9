@@ -4,7 +4,7 @@ from azure.servicebus import ServiceBusClient, ServiceBusMessage
 
 app = Flask(__name__)
 
-# ⚠️ Lab only – in real apps, move these to config / Key Vault.
+# Lab only – in real apps, move these to config / Key Vault.
 TABLE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=lab9cosmosaccount;AccountKey=M64rRRxvZbQmG3wy3b6G09JgUM6zzDTQpMilGNhjLuuyobzZt1Z2cr7Pq04nbrjxfc6ogjwjUnwlACDbl2GIhg==;TableEndpoint=https://lab9cosmosaccount.table.cosmos.azure.com:443/;"
 TABLE_NAME = "MyTable"
 

@@ -285,15 +285,17 @@ Since we want Azure to perform a build (pip install) and run our Flask app corre
 
 ### 4.4 Add Startup Command (Required for Python on Linux)
 
-Azure App Service needs a startup command to:
+Azure App Service requires an explicit startup command to correctly locate the Flask app when your code is inside an `app/` folder.
 
-- Install dependencies from `requirements.txt`
-- Launch the Flask app using `gunicorn`
+- `app.application` → refers to `application.py` inside the `app` folder
+- `:app` → refers to the Flask instance named `app` inside that file
 
-1. On the Web App page, go to **Configuration**.
-2. Open the **General settings** tab.
-3. Scroll to **Startup Command**.
-4. Enter the following command:
+**Configure Startup Command:**
+
+1. Open your Web App → **Configuration**
+2. Select the **General settings** tab
+3. Scroll to **Startup Command**
+4. Enter the following:
 
 ```bash
 gunicorn --bind 0.0.0.0 --timeout 600 app.application:app

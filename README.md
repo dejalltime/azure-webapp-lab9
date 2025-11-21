@@ -7,10 +7,6 @@ In this lab, you’ll deploy a **Python Flask web application** using **Azure Ap
 - **Azure Cosmos DB (Table API)** to store user login credentials
 - **Azure Service Bus Topic** to publish login notifications
 - **Managed Identity** to securely access Azure services without storing secrets
-- A workflow equivalent to the AWS lab:
-  - **Elastic Beanstalk → Azure App Service**
-  - **DynamoDB → Cosmos DB Table API**
-  - **SNS Topic → Service Bus Topic**
 
 By the end of this lab, you will be able to:
 
@@ -41,7 +37,7 @@ By the end of this lab, you will be able to:
 ---
 
 <details>
-<summary><b>1️ Create Azure Cosmos DB Table (Equivalent to DynamoDB)</b></summary>
+<summary><b>1️ Create Azure Cosmos DB Table</b></summary>
 
 ### 1.1 Create Cosmos DB Account
 
